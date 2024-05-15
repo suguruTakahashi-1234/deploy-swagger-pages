@@ -1,0 +1,54 @@
+name: Deploy Swagger UI to GitHub Pages
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+# Ref: Swaggerで作成したAPI仕様書をGitHub Pagesにデプロイしよう！ - https://qiita.com/shun198/items/520806a86a14a4bd64a8
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Chekcout code
+        uses: actions/checkout@v4
+
+      - name: Install swagger-cli
+        run: npm install -g swagger-cli
+
+      - name: Generate Swagger UI
+        uses: Legion2/swagger-ui-action@v1
+        with:
+          output: swagger-ui
+          spec-file: doc/openapi.yml
+
+      - name: Upload Documents
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # 絶対パスを指定
+          path: swagger-ui
+
+  # Deploy the artifact to GitHub pages.
+  # This is a separate job so that only actions/deploy-pages has the necessary permissions.
+  deploy:
+    # Add a dependency to the build job
+    needs: build
+
+    # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
+    permissions:
+      pages: write      # to deploy to Pages
+      id-token: write   # to verify the deployment originates from an appropriate source
+
+    # Deploy to the github-pages environment
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    # Specify runner + deployment step
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4 # or specific "vX.X.X" version tag for this action
