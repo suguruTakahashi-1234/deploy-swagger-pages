@@ -4,9 +4,9 @@
 
 以下の 2 点を検証したリポジトリになります。
 
-- メイン
+- メインの検証
   - GitHub Actions の [swagger-ui-action](https://github.com/Legion2/swagger-ui-action) を用いて `openapi.yaml` の更新をトリガーに Swagger での API 仕様書を GitHub Pages にデプロイする検証
-- サブ
+- サブの検証
   - GitHub Actions を用いて `openapi.yaml` の更新をトリガーに、iOS リポジトリに対して [swift-openapi-generator](https://github.com/apple/swift-openapi-generator) で生成されたコードの変更の PR を作成する Workflow の検証
     - 今回はサンプルとして、[swift-openapi-gen-sample](https://github.com/suguruTakahashi-1234/swift-openapi-gen-sample) というリポジトリに対して [repository-dispatch](https://github.com/peter-evans/repository-dispatch) を用いて、GitHub Actions の workflow を kick する
 
