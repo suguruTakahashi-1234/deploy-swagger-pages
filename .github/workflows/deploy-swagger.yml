@@ -5,8 +5,8 @@ on:
   push:
     branches:
       - main
-    # paths:
-    #   - doc/openapi.yaml
+    paths:
+      - doc/openapi.yaml
 
 # Ref: Swaggerで作成したAPI仕様書をGitHub Pagesにデプロイしよう！ - https://qiita.com/shun198/items/520806a86a14a4bd64a8
 
