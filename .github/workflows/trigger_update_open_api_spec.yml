@@ -30,7 +30,7 @@ jobs:
       - name: Trigger iOS repo workflow
         uses: peter-evans/repository-dispatch@v3
         with:
-          token: ${{ env.gh_token }} # Permission: repo, read:org, project
+          token: ${{ env.gh_token }}
           repository: ${{ env.ios_repo }}
           event-type: ${{ env.event_type }}
           client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}", "branch": "${{ github.ref_name }}", "commit_message": "${{ steps.get_commit_message.outputs.commit_message }}", "commit_sha": "${{ steps.get_commit_message.outputs.commit_sha }}"}'
