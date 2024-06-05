@@ -30,3 +30,43 @@
   - https://github.com/actions/upload-artifact
   - https://github.com/Legion2/swagger-ui-action
   - https://github.com/actions/deploy-pages
+
+
+### OpenAPI to PDF Converter
+
+#### Prerequisites
+
+- Node.js and npm installed.
+
+#### Setup
+
+1. Install the required dependencies.
+
+   ```bash
+   npm install
+   ```
+
+#### Generate PDF
+
+1. **Generate Asciidoc**: Use `openapi-generator-cli` to generate Asciidoc files from the OpenAPI YAML file.
+
+   ```bash
+   npm run generate-asciidoc
+   ```
+
+2. **Generate PDF**: Use `asciidoctor-web-pdf` to convert the generated Asciidoc files to PDF with the custom theme.
+
+   ```bash
+   npm run generate-pdf
+   ```
+
+3. **Convert Asciidoc to PDF**: A combined script that generates Asciidoc and then converts it to PDF.
+
+   ```bash
+   npm run convert-asciidoc
+   ```
+
+#### Custom Theme
+
+The custom theme file `theme.yml` includes settings to improve the readability of the generated PDF. This theme uses the NotoSansJP font for better Japanese text rendering.
+

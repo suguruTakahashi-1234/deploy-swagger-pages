@@ -1,0 +1,22 @@
+{
+  "name": "deploy-swagger-pages",
+  "version": "1.0.0",
+  "description": "### 概要",
+  "main": "index.js",
+  "directories": {
+    "doc": "doc"
+  },
+  "scripts": {
+    "generate-asciidoc": "openapi-generator-cli generate -i ./doc/openapi.yaml -g asciidoc -o ./docs",
+    "generate-pdf": "asciidoctor-web-pdf ./docs/index.adoc -o output.pdf -a pdf-theme=custom-theme.yml",
+    "convert-asciidoc": "npm run generate-asciidoc && npm run generate-pdf"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@openapitools/openapi-generator-cli": "^2.13.4",
+    "asciidoctor": "^3.0.4",
+    "asciidoctor-pdf": "^1.0.0-alpha.16"
+  }
+}

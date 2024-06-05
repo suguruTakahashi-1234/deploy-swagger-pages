@@ -1,0 +1,14 @@
+fonts:
+  NotoSansJP:
+    normal: 'https://fonts.gstatic.com/ea/notosansjp/v6/NotoSansJP-Regular.otf'
+    bold: 'https://fonts.gstatic.com/ea/notosansjp/v6/NotoSansJP-Bold.otf'
+    italic: 'https://fonts.gstatic.com/ea/notosansjp/v6/NotoSansJP-Italic.otf'
+    bold_italic: 'https://fonts.gstatic.com/ea/notosansjp/v6/NotoSansJP-BoldItalic.otf'
+
+pdf:
+  font:
+    catalog:
+      NotoSansJP: NotoSansJP
+    fallbacks: [NotoSansJP]
+    heading: NotoSansJP
+    body: NotoSansJP
